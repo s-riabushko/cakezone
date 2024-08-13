@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "main.apps.MainConfig",
-    "menu.apps.MenuConfig",
-    "team.apps.TeamConfig",
-    "service.apps.ServiceConfig",
-    "contact.apps.ContactConfig",
+    "home.apps.HomeConfig",
+    "menu_pricing.apps.MenuPricingConfig",
+    "master_chefs.apps.MasterChefsConfig",
+    "our_service.apps.OurServiceConfig",
+    "contact_us.apps.ContactUsConfig"
 ]
 
 MIDDLEWARE = [
@@ -132,3 +132,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

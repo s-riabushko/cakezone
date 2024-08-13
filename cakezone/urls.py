@@ -15,18 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
-from main.views import main_index
-from menu.views import menu_index
-from team.views import team_index
-from service.views import service_index
-from contact.views import contact_index
+from django.urls import path, re_path, include
+from django.conf.urls.static import static
+from cakezone import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('menu/', menu_index, name='menu_index'),
-    path('team/', team_index, name='team_index'),
-    path('service/', service_index, name='service_index'),
-    path('contact/', contact_index, name='contact_index'),
-    path('', main_index, name='main_index'),
+    path('', include('home.urls')),
+    path('menu_pricing/', include('menu_pricing.urls')),
+    path('master_chefs/', include('master_chefs.urls')),
+    path('our_service/', include('our_service.urls')),
+    path('contact_us/', include('contact_us.urls')),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
