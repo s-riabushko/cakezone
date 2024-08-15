@@ -11,7 +11,7 @@
                 <div class="col-lg-8 text-center text-lg-start">
                     <h1 class="font-secondary text-primary mb-4">Super Crispy</h1>
                     <h1 class="display-1 text-uppercase text-white mb-4">CakeZone</h1>
-                    <h1 class="text-uppercase text-white">The Best Cake In London</h1>
+                    <h1 class="text-uppercase text-white">{{ banner_slogan }}</h1>
                 </div>
             </div>
         </div>
@@ -50,26 +50,26 @@
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="{{ about_image.url }}" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pb-5">
-                    <h4 class="mb-4">Tempor erat elitr rebum clita. Diam dolor diam ipsum erat lorem sed stet labore lorem sit clita duo</h4>
-                    <p class="mb-5">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
+                    <h4 class="mb-4">{{ about_title }}</h4>
+                    <p class="mb-5">{{ about_text }}</p>
                     <div class="row g-5">
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
                                 <i class="fa fa-heartbeat fa-2x text-white"></i>
                             </div>
                             <h4 class="text-uppercase">100% Healthy</h4>
-                            <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                            <p class="mb-0">{{ about_100_healthy }}</p>
                         </div>
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
                                 <i class="fa fa-award fa-2x text-white"></i>
                             </div>
                             <h4 class="text-uppercase">Award Winning</h4>
-                            <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                            <p class="mb-0">{{ about_award_winning }}</p>
                         </div>
                     </div>
                 </div>
@@ -83,50 +83,19 @@
     <div class="container-fluid bg-img py-5 mb-5">
         <div class="container py-5">
             <div class="row gx-5 gy-4">
+                {% for counter in counters %}
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-star text-white"></i>
+                            <i class="{{ counter.fa_link }}"></i>
                         </div>
                         <div class="ps-4">
-                            <h6 class="text-primary text-uppercase">Our Experience</h6>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h6 class="text-primary text-uppercase">{{ counter.name }}</h6>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">{{ counter.value }}</h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="d-flex">
-                        <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-users text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h6 class="text-primary text-uppercase">Cake Specialist</h6>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="d-flex">
-                        <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-check text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h6 class="text-primary text-uppercase">Complete Project</h6>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="d-flex">
-                        <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-mug-hot text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h6 class="text-primary text-uppercase">Happy Clients</h6>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -140,9 +109,9 @@
                 <div class="col-lg-7 text-center">
                     <div class="section-title position-relative text-center mx-auto mb-4 pb-3" style="max-width: 600px;">
                         <h2 class="text-primary font-secondary">Special Kombo Pack</h2>
-                        <h1 class="display-4 text-uppercase text-white">Super Crispy Cakes</h1>
+                        <h1 class="display-4 text-uppercase text-white">{{ spk_title }}</h1>
                     </div>
-                    <p class="text-white mb-4">Eirmod sed tempor lorem ut dolores sit kasd ipsum. Dolor ea et dolore et at sea ea at dolor justo ipsum duo rebum sea. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo lorem. Elitr ut dolores magna sit. Sea dolore sed et.</p>
+                    <p class="text-white mb-4">{{ spk_text }}</p>
                 </div>
             </div>
         </div>
@@ -158,50 +127,21 @@
                 <h1 class="display-4 text-uppercase">Our Clients Say!!!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
+
+                {% for testimonial in testimonials %}
                 <div class="testimonial-item bg-dark text-white border-inner p-4">
                     <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="{% static 'img/testimonial-1.jpg' %}" style="width: 60px; height: 60px;">
+                        <img class="img-fluid flex-shrink-0" src="{{ testimonial.photo.url }}" style="width: 60px; height: 60px;">
                         <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
+                            <h4 class="text-primary text-uppercase mb-1">{{ testimonial.name }}</h4>
+                            <span>{{ testimonial.profession }}</span>
                         </div>
                     </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    <p class="mb-0">{{ testimonial.testimonial_text }}
                     </p>
                 </div>
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="{% static 'img/testimonial-2.jpg' %}" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
-                </div>
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="{% static 'img/testimonial-3.jpg' %}" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
-                </div>
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="{% static 'img/testimonial-4.jpg' %}" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
-                </div>
+                {%  endfor %}
+
             </div>
         </div>
     </div>

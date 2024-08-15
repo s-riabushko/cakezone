@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "home.apps.HomeConfig",
-    "menu_pricing.apps.MenuPricingConfig",
-    "master_chefs.apps.MasterChefsConfig",
-    "our_service.apps.OurServiceConfig",
-    "contact_us.apps.ContactUsConfig"
+    "menu.apps.MenuConfig",
+    "contacts.apps.ContactsConfig",
+    "masters.apps.MastersConfig",
+    "services.apps.ServicesConfig"
 ]
 
 MIDDLEWARE = [
@@ -69,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'contacts.context_processors.contacts',
+                'home.context_processors.footer_feature',
             ],
         },
     },

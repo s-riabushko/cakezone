@@ -22,10 +22,10 @@ from cakezone import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('menu_pricing/', include('menu_pricing.urls')),
-    path('master_chefs/', include('master_chefs.urls')),
-    path('our_service/', include('our_service.urls')),
-    path('contact_us/', include('contact_us.urls')),
+    path('menu/', include('menu.urls')),
+    path('masters/', include('masters.urls')),
+    path('services/', include('services.urls')),
+    path('contacts/', include('contacts.urls')),
 
 ]
 
