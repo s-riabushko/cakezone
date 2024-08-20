@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.conf.urls.static import static
 from cakezone import settings
+from contacts.views import subscribe as contacts_subscribe
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +27,7 @@ urlpatterns = [
     path('masters/', include('masters.urls')),
     path('services/', include('services.urls')),
     path('contacts/', include('contacts.urls')),
-
+    path('subscribe/', contacts_subscribe, name='contacts_subscribe'),
 ]
 
 if settings.DEBUG:
