@@ -24,12 +24,11 @@ class Category(models.Model):
 class Dish(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
-    weight = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     photo = models.ImageField(upload_to='dish_photos')
     is_visible = models.BooleanField(default=True)
     is_special = models.BooleanField(default=False)
-    sort = models.PositiveSmallIntegerField()
+    sort = models.PositiveSmallIntegerField(default=10)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='dishes')
 
     class Meta:
