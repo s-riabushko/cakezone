@@ -19,6 +19,7 @@ from django.urls import path, re_path, include
 from django.conf.urls.static import static
 from cakezone import settings
 from contacts.views import subscribe as contacts_subscribe
+from account.views import RegisterView, MyLoginView, user_logout, successful_register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,10 @@ urlpatterns = [
     path('services/', include('services.urls')),
     path('contacts/', include('contacts.urls')),
     path('subscribe/', contacts_subscribe, name='contacts_subscribe'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', MyLoginView.as_view(), name='login'),
+    path('logout/', user_logout, name='logout'),
+    path('successful_register/', successful_register, name='successful_register'),
 ]
 
 if settings.DEBUG:

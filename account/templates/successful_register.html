@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container-fluid contact position-relative px-5" style="margin-top: 70px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 register-successful">
+                    <h1>Register Successfull!</h1>
+                    <h2>Now you cal <a href="{% url 'login' %}">Login</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

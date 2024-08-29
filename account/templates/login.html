@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container-fluid contact position-relative px-5" style="margin-top: 50px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1 class="login-title">login</h1>
+                <div class="login-form col-lg-6">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-error">{{ form.non_field_errors }}</div>
+                        <div class="row gy-4">
+                            {% for field in form %}
+                                <div class="login-row">
+                                    <div class="login-label">
+                                        <label class="form-label" for="{{ field.id_for_label }}">{{field.label}}: </label>
+                                    </div>
+                                    <div class="login-input">
+                                        {{ field }}
+                                    </div>
+                                    <div class="form-error">{{ field.errors }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center"><button type="submit" class="btn btn-primary login-btn">Login</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

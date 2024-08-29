@@ -7,12 +7,24 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto mx-lg-auto py-0">
-                <a href="{% url 'home:index' %}" class="nav-item nav-link active">Home</a>
-                <a href="{% url 'menu:index'%}" class="nav-item nav-link">Menu & Pricing</a>
-                <a href="{% url 'masters:index'%}" class="nav-item nav-link">Master Chefs</a>
-				<a href="{% url 'services:index'%}" class="nav-item nav-link">Our Service</a>
-                <a href="{% url 'contacts:index'%}" class="nav-item nav-link">Contact Us</a>
+            <div class="navbar-nav-wrapper ms-auto mx-lg-auto py-0">
+                <div class="navbar-nav ms-auto mx-lg-auto py-0">
+                    <a href="{% url 'home:index' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'menu:index'%}" class="nav-item nav-link">Menu & Pricing</a>
+                    <a href="{% url 'masters:index'%}" class="nav-item nav-link">Master Chefs</a>
+                    <a href="{% url 'services:index'%}" class="nav-item nav-link">Our Service</a>
+                    <a href="{% url 'contacts:index'%}" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <div class="navbar-login">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout'%}" class="nav-item nav-link">Logout</a>
+                    {% else %}
+                        <a href="{% url 'register'%}" class="nav-item nav-link">Register</a>
+                        <span class="navbar-login-or">or</span>
+                        <a href="{% url 'login'%}" class="nav-item nav-link">Login</a>
+                    {% endif %}
+                </div>
+                
             </div>
         </div>
     </nav>

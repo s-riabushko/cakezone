@@ -313,3 +313,86 @@ h6,
     background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(../img/bg.jpg) center center no-repeat;
     background-size: cover;
 }
+
+.navbar-login {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-login a{
+    font-weight: 600;
+}
+
+.navbar-login a:hover{
+    color: #ffffff;
+}
+
+.navbar-login-or {
+    color: #ffffff;
+}
+
+.register-form, .login-form {
+    background-color: #E88F2A;
+    padding: 50px 30px 40px;
+}
+
+.register-btn, .login-btn {
+    background-color: #ffffff;
+    color: #E88F2A;
+    font-size: 25px;
+    padding: 10px 20px;
+}
+
+.register-btn:hover, .login-btn:hover {
+    background-color: #bdbdbd;
+    color: #6b4316;
+    font-size: 25px;
+    padding: 10px 20px;
+}
+
+.register-title, .login-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.login-label {
+    width: 100px;
+    color: #ffffff;
+    font-weight: 600;
+}
+.login-input {
+    width: calc(100% - 100px);
+}
+
+.login-form input {
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #656565;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.login-btn {
+    margin-top: 40px;
+}
+
+.register-successful {
+    text-align: center;
+    padding: 0 0 150px;
+}

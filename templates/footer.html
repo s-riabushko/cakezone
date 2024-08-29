@@ -44,17 +44,19 @@
                                 <a class="text-secondary" href="{% url 'contacts:index' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-primary text-uppercase mb-4">Newsletter</h4>
-                            <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
-                            <form action="{% url 'contacts_subscribe' %}" method="post">
-                                {% csrf_token %}
-                                <div class="input-group">
-                                    {{ subscriber_form.email }}
-                                    <button class="btn btn-primary">Sign Up</button>
-                                </div>
-                            </form>
-                        </div>
+                        {% if user.is_authenticated %}
+                            <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                                <h4 class="text-primary text-uppercase mb-4">Newsletter</h4>
+                                <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
+                                <form action="{% url 'contacts_subscribe' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        {{ subscriber_form.email }}
+                                        <button class="btn btn-primary">Sign Up</button>
+                                    </div>
+                                </form>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
